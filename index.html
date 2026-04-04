@@ -178,6 +178,7 @@ function setArticleFeedback(articleTitle, category, type) {
     if (type === 'disliked') { fb.categories[category].score--; fb.categories[category].disliked++; }
   }
   saveFeedback(fb);
+  _skipScrollTop = true;
   renderContent();
 }
 
@@ -262,11 +263,13 @@ function renderTabs() {
 }
 
 // --- Content Rendering ---
+let _skipScrollTop = false;
 async function renderContent() {
   const content = document.getElementById('content');
 
-  // Scroll to top on tab switch
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  // Scroll to top on tab switch (skip when feedback checkbox toggled)
+  if (!_skipScrollTop) window.scrollTo({ top: 0, behavior: 'instant' });
+  _skipScrollTop = false;
 
   const customFeed = customFeeds.find(f => f.name === activeTab);
   let articles;
