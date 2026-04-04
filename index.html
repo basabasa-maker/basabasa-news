@@ -286,16 +286,12 @@ async function renderContent() {
     return;
   }
 
-  // Sort: major news first, then by feedback (disliked at bottom)
+  // Sort: major news first (disliked stays in place, just dimmed)
   const fb = getFeedback();
   articles.sort((a, b) => {
     const aMajor = a.major ? 1 : 0;
     const bMajor = b.major ? 1 : 0;
     if (aMajor !== bMajor) return bMajor - aMajor;
-    const aFb = fb.articles[a.title];
-    const bFb = fb.articles[b.title];
-    if (aFb === 'disliked' && bFb !== 'disliked') return 1;
-    if (bFb === 'disliked' && aFb !== 'disliked') return -1;
     return 0;
   });
 
