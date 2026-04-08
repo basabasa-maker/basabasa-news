@@ -1,0 +1,311 @@
+{
+  "date": "2026-04-08",
+  "generated_at": "2026-04-08T06:10:46.047126",
+  "articles": [
+    {
+      "title": "首相 UAE大統領に原油の協力要請",
+      "link": "https://news.yahoo.co.jp/pickup/6575491?source=rss",
+      "date": "Tue, 07 Apr 2026 13:42:50 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/8/8069dad14223c98d794dd791d26569ef277163eeb1680b83ca3a06911a60bd72.jpg"
+    },
+    {
+      "title": "首相 年を越え石油供給確保できる",
+      "link": "https://news.yahoo.co.jp/pickup/6575475?source=rss",
+      "date": "Tue, 07 Apr 2026 10:34:14 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/8b1ceba0d550308a3cdb25749c0fda3cff55feaeab4658d6ce1cdb7bbdec46ca.jpg"
+    },
+    {
+      "title": "予算の審議時間 衆参の違い鮮明",
+      "link": "https://news.yahoo.co.jp/pickup/6575485?source=rss",
+      "date": "Tue, 07 Apr 2026 12:04:37 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/c11f3f6f255e2404f328af7b27da5dfceb23cc29c60a4ca272c13682886df012.jpg"
+    },
+    {
+      "title": "2026年度予算成立 総額122兆円",
+      "link": "https://news.yahoo.co.jp/pickup/6575467?source=rss",
+      "date": "Tue, 07 Apr 2026 09:01:32 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/f4adb3bfbab20ce0f68e80b01c4fdb2876fae46f6d45edf301157c7b6648079b.jpg"
+    },
+    {
+      "title": "中道立憲公明 統一選協力で合意",
+      "link": "https://news.yahoo.co.jp/pickup/6575495?source=rss",
+      "date": "Tue, 07 Apr 2026 14:28:54 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/193bfb9c504253f5b4a42233eccc35de189439cf75f29a92dfa006d054f0012f.jpg"
+    },
+    {
+      "title": "旧統一 新団体「FFWPU」設立へ",
+      "link": "https://news.yahoo.co.jp/pickup/6575470?source=rss",
+      "date": "Tue, 07 Apr 2026 09:23:02 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/0f6e6ba34e01fc94d00efb33cdb2f64dd696e5307d677f7ba5af4d7a84e51ada.jpg"
+    },
+    {
+      "title": "NHK 理事7人が異例の同時退任へ",
+      "link": "https://news.yahoo.co.jp/pickup/6575482?source=rss",
+      "date": "Tue, 07 Apr 2026 11:40:40 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/e90d26128d141df89ceb9267ed613f5e429455a37989064c8e3c2669015e83b0.jpg"
+    },
+    {
+      "title": "「中1の壁」とは 子に現れる変化",
+      "link": "https://news.yahoo.co.jp/pickup/6575490?source=rss",
+      "date": "Tue, 07 Apr 2026 13:44:24 GMT",
+      "description": "",
+      "category": "政治・経済",
+      "image": "https://news-pctr.c.yimg.jp/t/news-topics/images/tpc/2026/4/7/bfedd9cf7cda68824950032be05276165843e859d949319a4bf78872040397d9.jpg"
+    },
+    {
+      "title": "全PRの83%をAIレビューだけでマージできるようにした",
+      "link": "https://zenn.dev/kauche/articles/e051583461c181",
+      "date": "2026-04-07T07:06:25Z",
+      "description": "はじめに カウシェでは、PRの83%が人間のコードレビューを経ずに自動でマージされています。 GitHub Actions上で動くAIレビュー（Claude Code Action）がPRを自動でApproveし、CIが通ればそのまま自動マージされる仕組みです。 本記事では、レビュールールを毎晩自動改善する仕組みを作ることで、自分たちの運用で許容で...",
+      "category": "AI・テクノロジー",
+      "image": "https://res.cloudinary.com/zenn/image/upload/s---pvaMxVe--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2585%25A8PR%25E3%2581%25AE83%2525%25E3%2582%2592AI%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E3%2583%259E%25E3%2583%25BC%25E3%2582%25B8%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AB%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:a-thug%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzA0YzgwYTVkNzEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25AB%25E3%2582%25A6%25E3%2582%25B7%25E3%2582%25A7%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzFVRGI0Z0M4bGM5Q3lVSWJsdmhKTm1rUHJtamdMQk11elJ1d0l3TndMPXM5Ni1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "title": "axios, LiteLLM...不使用だったのでOK、ではない。「次に備える」ソフトウェアサプライチェーン侵害への対策",
+      "link": "https://speakerdeck.com/flatt_security/axios-litellm-dot-dot-dot-bu-shi-yong-datutanodeok-dehanai-ci-nibei-eru-sohutoueasapuraitienqin-hai-henodui-ce",
+      "date": "2026-04-07T09:10:56Z",
+      "description": "弊社ウェビナー ( https://flatt.tech/takumi/event/github-actions-compromise-202603 ) におけるCTO米内の講演資料です。 動画はこちら ( https://www.youtube.com/watch?v=ms8MkNmiejA )",
+      "category": "AI・テクノロジー",
+      "image": "https://files.speakerdeck.com/presentations/9190ec629d9040b08aa2e78b374b07fa/slide_0.jpg?39004688"
+    },
+    {
+      "title": "月と地球を結ぶ260Mbps──「アルテミスII」を支える通信技術たち",
+      "link": "https://www.itmedia.co.jp/news/articles/2604/07/news108.html",
+      "date": "2026-04-07T08:06:30Z",
+      "description": "NASAが4月1日（現地時間）に打ち上げた月探査ミッション「アルテミスII」の有人宇宙船「オリオン」。ミッションに必要な通信からライブ映像まで、地球との通信を2段階の無線ネットワークと、有人月探査ミッションとして史上初のレーザー光通信システムが支えている。 打ち上げから月遷移軌道への噴射前までの通信を担う...",
+      "category": "AI・テクノロジー",
+      "image": "https://image.itmedia.co.jp/news/articles/2604/07/cover_news108.jpg"
+    },
+    {
+      "title": "AIのお世話が辛いのでUsecase Design Docを書く - CADDi Tech Blog",
+      "link": "https://caddi.tech/2026/04/07/110000",
+      "date": "2026-04-07T11:16:57Z",
+      "description": "はじめに 何が辛かったのか 毎回詳細なプロンプトを書くのが辛い AIエージェントのタスク完了まで面倒を見るのが辛い これらを並列で実行しているのが辛い 解決方針 詳細な設計ドキュメントの作り込み Usecase Design Doc 細かい実装指示・計画・実行をAIエージェントに委譲 タスクの分割方針 AIエージェントへの実装委...",
+      "category": "AI・テクノロジー",
+      "image": "https://ogimage.blog.st-hatena.com/6801883189080957472/17179246901370784318/1775543676"
+    },
+    {
+      "title": "『きのこの山』と『たけのこの里』を合体させたAI発案商品『きたきたのこのこの山里』が発売決定されるも...→「砕かれて溶かされて没個性に固められてる...」「AIに人の心はないと分かる所業」",
+      "link": "https://togetter.com/li/2683345",
+      "date": "2026-04-07T10:13:09Z",
+      "description": "“どっちも派専用”「AI発案 合体しちゃった！きたきたのこのこの山里」4月14日から数量・期間限定で全国発売決定！ | 株式会社 明治のプレスリリース 株式会社 明治のプレスリリース（2026年4月7日 08時00分）“どっちも派専用”「AI発案 合体しちゃった！きたきたのこのこの山里」4月14日から数量・期間限定で全国発売決定...",
+      "category": "AI・テクノロジー",
+      "image": "https://s.tgstc.com/ogp3/8b66e12b6325c18957bee19251eb2c25-1200x630.jpeg"
+    },
+    {
+      "title": "「FMV Keyboard X」登場。静音磁気スイッチ搭載、ギリギリまでコンパクトに",
+      "link": "https://pc.watch.impress.co.jp/docs/news/2099824.html",
+      "date": "2026-04-07T10:13:07Z",
+      "description": "",
+      "category": "AI・テクノロジー",
+      "image": "https://pc.watch.impress.co.jp/img/pcw/list/2099/824/01.jpg"
+    },
+    {
+      "title": "AI時代をリードする「ThinkPad」2026年モデル10製品が一挙発表、ついにType-C端子まで交換可",
+      "link": "https://k-tai.watch.impress.co.jp/docs/news/2099797.html",
+      "date": "2026-04-07T09:30:57Z",
+      "description": "",
+      "category": "AI・テクノロジー",
+      "image": "https://k-tai.watch.impress.co.jp/img/ktw/list/2099/797/cont140.jpg"
+    },
+    {
+      "title": "Claude Codeの文字化け問題の簡易的対応方法",
+      "link": "https://nyosegawa.com/posts/claude-code-mojibake-workaround/",
+      "date": "2026-04-07T05:25:01Z",
+      "description": "こんにちは！逆瀬川ちゃん (@gyakuse) です！ 今日はClaude Codeの最新バージョンで日本語を書いていると発生する文字化け問題と、hooksを使った簡易的な対応方法についてまとめていきたいと思います。 2026-04-07 追記: 当初PostToolUse（書き込み後に検出）で紹介していましたが、PreToolUse（書き込み前に阻止）に変...",
+      "category": "AI・テクノロジー",
+      "image": "https://nyosegawa.com/og/claude-code-mojibake-workaround.jpg"
+    },
+    {
+      "title": "「Firefox 149」でこっそり導入された小変更をめぐって「Reddit」が紛糾／そんななか、便利な小技を教えてくれる人も【やじうまの杜】",
+      "link": "https://forest.watch.impress.co.jp/docs/serial/yajiuma/2099572.html",
+      "date": "2026-04-07T04:42:11Z",
+      "description": "",
+      "category": "AI・テクノロジー",
+      "image": "https://forest.watch.impress.co.jp/img/wf/list/2099/572/image3.png"
+    },
+    {
+      "title": "通勤「44分」がメンタルヘルスの分岐点　それ以上は苦痛、それ以下は息抜き効果　共働き労働者500人以上を調査　米国チームが研究発表",
+      "link": "https://www.itmedia.co.jp/news/articles/2604/07/news018.html",
+      "date": "2026-04-06T23:56:21Z",
+      "description": "2019年の開始以来、多様な最新論文を取り上げている連載「Innovative Tech」。ここではその番外編として“ちょっと昔”に発表された世界中の個性的な研究論文を独自視点で厳選、解説する。執筆は研究論文メディア「Seamless」（シームレス）を主宰し、日課として数多くの論文に目を通す山下氏が担当。イラストや漫画は、同...",
+      "category": "AI・テクノロジー",
+      "image": "https://image.itmedia.co.jp/news/articles/2604/07/cover_news018.jpg"
+    },
+    {
+      "title": "体を動かす旅や子ども主導など、目的特化型へ向かう2026年世界の旅行トレンド10 ーTripAdvisor",
+      "link": "https://yamatogokoro.jp/column/kaisetsu/59879/",
+      "date": "Tue, 07 Apr 2026 00:55:32 +0000",
+      "description": "旅行は今、「どこへ行くか」から「何を体験するか」、さらに「なぜそれを選ぶのか」へと軸が移っている。 身体を動かすために旅に出る人、知られざるローカルの飲み物を求めて地方へ向かう人、さらには“限界”に挑戦するために極地を目…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/04/wal_172619-marathon-6580967_1920.jpg"
+    },
+    {
+      "title": "アジアの旅行支出意向、欧米比50％高。AI活用9割で行動が変化 ー世界20市場の旅行意向調査",
+      "link": "https://yamatogokoro.jp/inbound_data/59875/",
+      "date": "Mon, 06 Apr 2026 00:45:25 +0000",
+      "description": "旅行需要が拡大局面へ入る中、訪日市場の強さと旅行者行動の変化がより鮮明になっている。 旅行・体験予約アプリを運営するKlookが実施した「Travel Pulse 2026」によると、日本は「訪問したい国・地域」で20％…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/04/stefan-petersen-TIuKtKVVCCY-unsplash.jpg"
+    },
+    {
+      "title": "【体験レポ】満足度の高い大阪フードツアーはどう作られるのか?　Osaka JOINERの体験と運営の仕組み",
+      "link": "https://yamatogokoro.jp/column/experience-report/59855/",
+      "date": "Thu, 02 Apr 2026 00:25:47 +0000",
+      "description": "訪日客向けの体験ツアーが各地で増える中、「直前予約でも参加できる」「気軽にローカルの人々と触れ合える」といった柔軟なツアーが注目を集めています。大阪メトログループが手がけるガイド付きツアーサービス「Osaka JOINE…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/IMG_4971.jpg"
+    },
+    {
+      "title": "2026年1月訪日宿泊15％減の1283万人泊、中国62％減も地方は堅調",
+      "link": "https://yamatogokoro.jp/inbound_data/59864/",
+      "date": "Wed, 01 Apr 2026 00:17:20 +0000",
+      "description": "観光庁の宿泊旅行統計調査（2026年1月・第二次速報）によると、1月の外国人延べ宿泊者数は1283万人泊となり、前年同月比15.3％の大幅な減少となった。もっとも、宿泊者全体に占める外国人の構成比は28.2％に達しており…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/4886726_m.jpg"
+    },
+    {
+      "title": "認証は観光をどう変えるのか　Green Destinationsが示す、持続可能な観光マネジメントの最前線",
+      "link": "https://yamatogokoro.jp/column/inbound-seminarreport/59686/",
+      "date": "Mon, 30 Mar 2026 23:00:01 +0000",
+      "description": "観光におけるサステナビリティは、欧州を中心に“持続可能であることの証明”が求められる動きが強まり、理念から実装のフェーズへと移行しています。本セッションでは、「認証」をテーマに、観光地マネジメントにおける実践的な活用方法…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/21034e39a71dfc74533285558d61e8d0.jpg"
+    },
+    {
+      "title": "体験ビジネスは「商品づくり」だけでは成功しない、事業の成長を左右する3つの視点",
+      "link": "https://yamatogokoro.jp/report/59838/",
+      "date": "Sun, 29 Mar 2026 23:00:52 +0000",
+      "description": "インバウンド市場の拡大とともに、体験アクティビティは観光における重要な収益領域となりつつある。一方で、比較的新しい分野である体験ビジネスは、宿泊業や旅行業とはビジネスモデルや経営資源が異なる構造を持ちながら、その経営ノウ…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/202603_03_02.jpg"
+    },
+    {
+      "title": "世界に選ばれた福井県永平寺町の持続可能な観光 ー「Top 100 Stories 2025」に見る禅の精神とコーディネーターの役割",
+      "link": "https://yamatogokoro.jp/column/sustainable-tourism/59697/",
+      "date": "Wed, 25 Mar 2026 23:00:13 +0000",
+      "description": "持続可能な観光地域づくりは、理念を掲げるだけ、あるいは国際基準のガイドラインを導入するだけでは機能しません。それらを地域の実情に合わせて生かし、現場に根づかせながら運用していく。そのプロセスを担う「人」の存在があってこそ…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/37cb463bd368267ca16ad13ac56dfa18.jpg"
+    },
+    {
+      "title": "タビナカ体験は「作っただけ」では売れない、選ばれる体験コンテンツをつくる4つの視点",
+      "link": "https://yamatogokoro.jp/report/59649/",
+      "date": "Tue, 24 Mar 2026 23:00:26 +0000",
+      "description": "日本各地で、地域の食や自然、文化を活かしたタビナカ体験の造成が進んでいる。観光庁や自治体の支援事業の後押しもあり、地域ならではのストーリーを持つ体験コンテンツが各地で生まれてきた。 一方で観光の現場では、「作ったものの売…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/202603_02_01-1.jpg"
+    },
+    {
+      "title": "タビナカ体験は「価値の中心」で変わる ー5つの型で読み解く「選ばれる体験」のつくり方",
+      "link": "https://yamatogokoro.jp/report/59707/",
+      "date": "Tue, 24 Mar 2026 00:00:25 +0000",
+      "description": "訪日観光において、「体験（タビナカアクティビティ）」の重要性は高まり続けている。各地で体験コンテンツの造成が進み、地域の観光戦略においても欠かせない要素となった。 しかしその一方で、「体験」とは何か、どのような種類があり…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/202603_02_01.jpg"
+    },
+    {
+      "title": "アドベンチャートラベル市場、アジアが最大規模で約63兆円規模と推計。地域ごとで志向に差",
+      "link": "https://yamatogokoro.jp/inbound_data/59627/",
+      "date": "Mon, 23 Mar 2026 00:51:29 +0000",
+      "description": "アドベンチャートラベル（AT）の世界市場は拡大を続け、アジアが最大のアウトバウンド市場（約4240億ドル：63兆円規模）と推計されることが分かった。Adventure Travel Trade Association（A…",
+      "category": "インバウンド",
+      "image": "https://yamatogokoro.jp/inbound/wp-content/uploads/2026/03/sheng-hu-us0i3nSluHM-unsplash.jpg"
+    },
+    {
+      "title": "外食業界の「今」と「これから」を学ぶ〜特別無料イベント「フードDXカンファレンス」が3月10日無料開催〜",
+      "link": "https://food-stadium.com/news-flash/39090/",
+      "date": "Wed, 25 Feb 2026 08:51:19 +0000",
+      "description": "フードパーパス編集部、ITmedia社との共同企画で「激動する外食・小売業界 D...\nThe post 外食業界の「今」と「これから」を学ぶ〜特別無料イベント「フードDXカンファレンス」が3月10日無料開催〜 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2026/02/1-750x439.jpg"
+    },
+    {
+      "title": "フードスタジアム・M2Assist ベトナム・ホーチミン視察ツアー開催！",
+      "link": "https://food-stadium.com/news-flash/38893/",
+      "date": "Tue, 06 Jan 2026 07:57:59 +0000",
+      "description": "フースタツアーが数年ぶりに復活！ 今回は特定技能VISAに特化した人材紹介事業を...\nThe post フードスタジアム・M2Assist ベトナム・ホーチミン視察ツアー開催！ appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2026/01/Gemini_Generated_Image_7wsmdm7wsmdm7wsm-750x409.png"
+    },
+    {
+      "title": "【速報】「外食アワード2025年」＆「外食キーワード」発表！",
+      "link": "https://food-stadium.com/news-flash/38752/",
+      "date": "Mon, 01 Dec 2025 05:09:23 +0000",
+      "description": "外食産業記者会は、その年に外食業界で活躍した人に贈る外食アワード2025」を発表...\nThe post 【速報】「外食アワード2025年」＆「外食キーワード」発表！ appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/12/114243.jpg"
+    },
+    {
+      "title": "12月3日(水)～5日(金)幕張メッセで、飲食店の悩み・課題が解決できる展示会「第4回 飲食業界イノベーションWeek」が開催",
+      "link": "https://food-stadium.com/news-flash/38583/",
+      "date": "Mon, 27 Oct 2025 10:26:50 +0000",
+      "description": "RX Japan株式会社 飲食業界イノベーションWeek 事務局は、2025年1...\nThe post 12月3日(水)～5日(金)幕張メッセで、飲食店の悩み・課題が解決できる展示会「第4回 飲食業界イノベーションWeek」が開催 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/10/b4f22536272417882bc3e26176eeb140-1-750x398.jpg"
+    },
+    {
+      "title": "外食業界活性化交流会「エフロク2025」が、11月4日(火)に開催。",
+      "link": "https://food-stadium.com/news-flash/38371/",
+      "date": "Fri, 10 Oct 2025 02:00:31 +0000",
+      "description": "外食業界活性化交流会「エフロク2025」が、11月4日(火)にYES THEAT...\nThe post 外食業界活性化交流会「エフロク2025」が、11月4日(火)に開催。 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/10/29d3bc99193cb0b837fb8cc53f050ae5.png"
+    },
+    {
+      "title": "創業1986年。東京渋谷発祥の行列の絶えない元祖・病みつきスープスパゲッティ『HOME’S PASTA』が関西初進出となる「ホームズパスタトラットリア梅田阪急グランドビル店」を7月23日オープン。",
+      "link": "https://food-stadium.com/news-flash/37935/",
+      "date": "Fri, 18 Jul 2025 01:00:52 +0000",
+      "description": "国内外に飲食店を47店舗展開している東京レストランツファクトリーは、スープスパゲ...\nThe post 創業1986年。東京渋谷発祥の行列の絶えない元祖・病みつきスープスパゲッティ『HOME’S PASTA』が関西初進出となる「ホームズパスタトラットリア梅田阪急グランドビル店」を7月23日オープン。 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/07/ZETSUBOU-746x750.jpg"
+    },
+    {
+      "title": "「ゆで太郎システム」池田社長を特別ゲストに「スリーウェルマネジメント」社と「フードスタジアム」の共催セミナー開催決定(無料※200名限定※オンライン有)",
+      "link": "https://food-stadium.com/news-flash/37726/",
+      "date": "Mon, 16 Jun 2025 09:38:15 +0000",
+      "description": "スリーウェルマネジメント社とフードスタジアムは共催セミナー(無料※200名限定※...\nThe post 「ゆで太郎システム」池田社長を特別ゲストに「スリーウェルマネジメント」社と「フードスタジアム」の共催セミナー開催決定(無料※200名限定※オンライン有) appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/06/66c19942ab4ba346fdb64ccc04cde373.jpg"
+    },
+    {
+      "title": "フリーが「freee TOGO World2025」をANAインターコンチネンタル東京で、5月14日(水)開催。絶好調 吉田社長とプランズ 深見社長が登壇。",
+      "link": "https://food-stadium.com/news-flash/37489/",
+      "date": "Fri, 09 May 2025 13:42:31 +0000",
+      "description": "フリー株式会社は、5月14日(水)に「freee TOGO World2025」...\nThe post フリーが「freee TOGO World2025」をANAインターコンチネンタル東京で、5月14日(水)開催。絶好調 吉田社長とプランズ 深見社長が登壇。 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/05/66c19942ab4ba346fdb64ccc04cde373-750x348.jpg"
+    },
+    {
+      "title": "フォロワー獲得やコンテンツより重要なのは”おすすめタブ”。ホットセラーが飲食店向けに、初期費用0円で始められるInstagramを用いた顧客獲得戦略「COCOマーケ」をサービス開始",
+      "link": "https://food-stadium.com/news-flash/37114/",
+      "date": "Thu, 20 Feb 2025 09:43:41 +0000",
+      "description": "SNSが発達した現代、Instagramを使用し特定の場所やキーワードを検索する...\nThe post フォロワー獲得やコンテンツより重要なのは”おすすめタブ”。ホットセラーが飲食店向けに、初期費用0円で始められるInstagramを用いた顧客獲得戦略「COCOマーケ」をサービス開始 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/02/bf6bd780ee0f96e1af144bad84926972-750x422.jpg"
+    },
+    {
+      "title": "渋谷に「酔い処さんちゃん」がオープン。登録者数177万人YouTuber「ヘラヘラ三銃士」プロデュースの居酒屋",
+      "link": "https://food-stadium.com/news-flash/36992/",
+      "date": "Tue, 04 Feb 2025 01:30:04 +0000",
+      "description": "2024年12月1日、渋谷に「酔い処さんちゃん」がオープンした。登録者数177万...\nThe post 渋谷に「酔い処さんちゃん」がオープン。登録者数177万人YouTuber「ヘラヘラ三銃士」プロデュースの居酒屋 appeared first on フードスタジアム.",
+      "category": "飲食",
+      "image": "https://food-stadium.com/wp/wp-content/uploads/2025/02/108460.jpg"
+    }
+  ],
+  "highlights": []
+}
