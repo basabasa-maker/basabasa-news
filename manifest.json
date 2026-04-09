@@ -1,0 +1,21 @@
+{
+  "name": "BasaBasa News",
+  "short_name": "News",
+  "start_url": "/basabasa-news/",
+  "scope": "/basabasa-news/",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
