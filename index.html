@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta
@@ -12,9 +12,9 @@
       content="black-translucent"
     />
     <meta name="apple-mobile-web-app-title" content="News" />
-    <link rel="apple-touch-icon" href="icon.png?v=2" />
+    <link rel="apple-touch-icon" href="icon.png?v=3" />
     <link rel="manifest" href="manifest.json" />
-    <title>News</title>
+    <title>BasaBasa News</title>
     <style>
       :root {
         --primary: #1a1a2e;
@@ -27,7 +27,8 @@
         --cat-ai: #3b82f6;
         --cat-inbound: #10b981;
         --cat-food: #f59e0b;
-        --cat-custom: #6366f1;
+        --toast-bg: #1a1a2e;
+        --toast-text: #ffffff;
       }
       * {
         margin: 0;
@@ -37,8 +38,10 @@
       }
       html,
       body {
-        height: 100%;
         overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
       }
       body {
         font-family:
@@ -47,15 +50,13 @@
         color: var(--text);
         display: flex;
         flex-direction: column;
-        position: fixed;
-        width: 100%;
       }
 
       /* Header */
       .header {
         background: var(--primary);
         color: #fff;
-        padding: 16px 16px 0;
+        padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 0;
         flex-shrink: 0;
         z-index: 100;
       }
@@ -63,7 +64,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+      }
+      .header-left {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
       }
       .header h1 {
         font-size: 18px;
@@ -73,6 +79,32 @@
       .header .date {
         font-size: 12px;
         opacity: 0.7;
+      }
+      .btn-refresh {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+      .btn-refresh:active {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .btn-refresh.spinning .refresh-icon {
+        animation: spin 0.8s linear infinite;
+      }
+      .refresh-icon {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
       }
 
       /* Tabs */
@@ -90,7 +122,10 @@
       }
       .tab {
         flex-shrink: 0;
-        padding: 8px 16px;
+        padding: 10px 16px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
         font-size: 13px;
         font-weight: 600;
         color: rgba(255, 255, 255, 0.6);
@@ -103,13 +138,13 @@
         color: #fff;
         border-bottom-color: var(--accent);
       }
-      .tab:hover {
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .tab-add {
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 16px;
-        padding: 8px 14px;
+
+      /* Scroll Container */
+      .scroll-container {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
       }
 
       /* Content */
@@ -117,66 +152,98 @@
         padding: 12px;
         max-width: 600px;
         margin: 0 auto;
-        flex: 1;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);
       }
 
-      /* Article Card */
+      /* Highlights */
+      .highlights {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        border-radius: 12px;
+        padding: 14px 16px;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+      .highlights-title {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .highlight-item {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .highlight-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .highlight-item-title {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-bottom: 3px;
+      }
+      .highlight-item-reason {
+        font-size: 11px;
+        opacity: 0.7;
+        line-height: 1.4;
+      }
+
+      /* Article Card - A案: テキスト特化コンパクト */
       .card {
         background: var(--card);
-        border-radius: 12px;
-        margin-bottom: 12px;
-        overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
       }
-      .card.dimmed {
-        opacity: 0.5;
-      }
-      .card-img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        background: #e5e7eb;
-        display: block;
-      }
-      .card-body {
-        padding: 12px 14px 14px;
+      .card-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
       }
       .card-cat {
         display: inline-block;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 700;
         color: #fff;
-        padding: 2px 8px;
-        border-radius: 4px;
-        margin-bottom: 6px;
+        padding: 2px 7px;
+        border-radius: 3px;
       }
       .card-major {
         display: inline-block;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 700;
         color: #ef4444;
         background: #fee2e2;
-        padding: 2px 6px;
-        border-radius: 4px;
-        margin-left: 6px;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+      .card-source {
+        font-size: 10px;
+        color: #9ca3af;
+        margin-left: auto;
       }
       .card-title {
         font-size: 15px;
         font-weight: 700;
         line-height: 1.4;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
       .card-desc {
-        font-size: 13px;
+        font-size: 12px;
         color: var(--sub);
         line-height: 1.5;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -186,7 +253,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
         gap: 8px;
       }
       .card-link {
@@ -197,16 +263,16 @@
         font-weight: 600;
         color: var(--accent);
         text-decoration: none;
-        padding: 6px 12px;
+        padding: 8px 14px;
+        min-height: 44px;
         border: 1px solid var(--accent);
         border-radius: 20px;
         transition: all 0.2s;
       }
-      .card-link:hover {
+      .card-link:active {
         background: var(--accent);
         color: #fff;
       }
-
       .btn-readlater {
         display: inline-flex;
         align-items: center;
@@ -214,14 +280,15 @@
         font-size: 12px;
         font-weight: 600;
         color: #f59e0b;
-        padding: 6px 12px;
+        padding: 8px 14px;
+        min-height: 44px;
         border: 1px solid #f59e0b;
         border-radius: 20px;
         background: transparent;
         cursor: pointer;
         transition: all 0.2s;
       }
-      .btn-readlater:hover {
+      .btn-readlater:active {
         background: #f59e0b;
         color: #fff;
       }
@@ -230,144 +297,6 @@
         color: #fff;
         opacity: 0.7;
         pointer-events: none;
-      }
-
-      /* Feedback checkboxes */
-      .feedback-checks {
-        display: flex;
-        gap: 12px;
-      }
-      .fb-check {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 12px;
-        color: var(--sub);
-        cursor: pointer;
-        user-select: none;
-        -webkit-user-select: none;
-      }
-      .fb-check input[type="checkbox"] {
-        width: 16px;
-        height: 16px;
-        accent-color: #16a34a;
-        cursor: pointer;
-      }
-      .fb-check.dislike-check input[type="checkbox"] {
-        accent-color: #dc2626;
-      }
-      .fb-check.checked-like {
-        color: #16a34a;
-        font-weight: 600;
-      }
-      .fb-check.checked-dislike {
-        color: #dc2626;
-        font-weight: 600;
-      }
-
-      /* Settings Panel */
-      .settings-panel {
-        background: var(--card);
-        border-radius: 12px;
-        padding: 20px;
-        margin-bottom: 12px;
-      }
-      .settings-panel h3 {
-        font-size: 16px;
-        margin-bottom: 16px;
-      }
-      .form-group {
-        margin-bottom: 14px;
-      }
-      .form-group label {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--sub);
-        display: block;
-        margin-bottom: 4px;
-      }
-      .form-group input {
-        width: 100%;
-        padding: 10px 12px;
-        border: 1px solid #d1d5db;
-        border-radius: 8px;
-        font-size: 14px;
-        outline: none;
-      }
-      .form-group input:focus {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-      }
-      .btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-      .btn-primary {
-        background: var(--accent);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: #2563eb;
-      }
-      .btn-danger {
-        background: #fee2e2;
-        color: #ef4444;
-        font-size: 12px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        margin-left: 8px;
-      }
-      .btn-outline {
-        background: transparent;
-        color: var(--accent);
-        border: 1px solid var(--accent);
-        font-size: 12px;
-        padding: 6px 12px;
-        border-radius: 6px;
-      }
-      .custom-feeds {
-        margin-top: 16px;
-      }
-      .custom-feed-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px solid #f3f4f6;
-        font-size: 13px;
-      }
-
-      /* Preference summary */
-      .pref-summary {
-        background: #f8fafc;
-        border-radius: 8px;
-        padding: 12px;
-        margin-bottom: 16px;
-      }
-      .pref-summary h4 {
-        font-size: 13px;
-        color: var(--sub);
-        margin-bottom: 8px;
-      }
-      .pref-tag {
-        display: inline-block;
-        font-size: 11px;
-        padding: 2px 8px;
-        border-radius: 10px;
-        margin: 2px;
-      }
-      .pref-tag.liked {
-        background: #dcfce7;
-        color: #16a34a;
-      }
-      .pref-tag.disliked {
-        background: #fee2e2;
-        color: #dc2626;
       }
 
       /* Loading */
@@ -399,26 +328,48 @@
         font-size: 14px;
       }
 
+      /* Toast */
+      .toast {
+        position: fixed;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+        left: 50%;
+        transform: translateX(-50%) translateY(80px);
+        background: var(--toast-bg);
+        color: var(--toast-text);
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        z-index: 9999;
+        opacity: 0;
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      .toast.error {
+        background: #ef4444;
+      }
+
       /* Footer */
       .footer {
         text-align: center;
-        padding: 10px;
+        padding: 8px;
         font-size: 11px;
         color: #9ca3af;
         flex-shrink: 0;
+        background: var(--bg);
       }
 
       @media (min-width: 768px) {
         .content {
           padding: 20px;
-        }
-        .cards-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px;
-        }
-        .cards-grid .card {
-          margin-bottom: 0;
         }
       }
     </style>
@@ -426,20 +377,40 @@
   <body>
     <div class="header">
       <div class="header-top">
-        <h1>BasaBasa News</h1>
-        <span class="date" id="newsDate">---</span>
+        <div class="header-left">
+          <h1>BasaBasa News</h1>
+          <span class="date" id="newsDate">---</span>
+        </div>
+        <button class="btn-refresh" id="btnRefresh" aria-label="更新">
+          <svg
+            class="refresh-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+        </button>
       </div>
       <div class="tabs" id="tabs"></div>
     </div>
 
-    <div class="content" id="content">
-      <div class="loading">
-        <div class="loading-spinner"></div>
-        <div>ニュースを読み込み中...</div>
+    <div class="scroll-container" id="scrollContainer">
+      <div class="content" id="content">
+        <div class="loading">
+          <div class="loading-spinner"></div>
+          <div>ニュースを読み込み中...</div>
+        </div>
       </div>
     </div>
 
     <div class="footer">BasaBasa News - AI-curated daily briefing</div>
+
+    <div class="toast" id="toast"></div>
 
     <script>
       const CAT_COLORS = {
@@ -448,478 +419,327 @@
         インバウンド: "var(--cat-inbound)",
         飲食: "var(--cat-food)",
       };
-      const CAT_EMOJI = {
-        "政治・経済": "🏛",
-        "AI・テクノロジー": "🤖",
-        インバウンド: "✈️",
-        飲食: "🍽",
-      };
-      const DEFAULT_IMAGES = {
-        "政治・経済":
-          "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=400&h=200&fit=crop",
-        "AI・テクノロジー":
-          "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop",
-        インバウンド:
-          "https://images.unsplash.com/photo-1480796927426-f609979314bd?w=400&h=200&fit=crop",
-        飲食: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=200&fit=crop",
-      };
-      const DEFAULT_CATEGORIES = [
+      const CATEGORIES = [
         "政治・経済",
         "AI・テクノロジー",
         "インバウンド",
         "飲食",
       ];
+      const READ_LATER_KEY = "newsReadLater";
+      const READ_LATER_MAX = 100;
 
       let newsData = null;
-      let activeTab = "政治・経済";
-      let customFeeds = JSON.parse(localStorage.getItem("customFeeds") || "[]");
-      let currentArticles = []; // renderContent内の記事リスト参照用
+      let activeTab = CATEGORIES[0];
+      let currentArticles = [];
+      let isRefreshing = false;
 
-      // --- Feedback System ---
-      function getFeedback() {
-        return JSON.parse(
-          localStorage.getItem("newsFeedback") ||
-            '{"articles":{},"categories":{}}',
-        );
-      }
-      function saveFeedback(fb) {
-        localStorage.setItem("newsFeedback", JSON.stringify(fb));
-      }
-      function setArticleFeedback(articleTitle, category, type) {
-        const fb = getFeedback();
-        const prev = fb.articles[articleTitle];
-
-        // Toggle: same button again = remove feedback
-        if (prev === type) {
-          delete fb.articles[articleTitle];
-          // Reverse category score
-          if (!fb.categories[category])
-            fb.categories[category] = { score: 0, liked: 0, disliked: 0 };
-          if (type === "liked") {
-            fb.categories[category].score--;
-            fb.categories[category].liked--;
-          }
-          if (type === "disliked") {
-            fb.categories[category].score++;
-            fb.categories[category].disliked--;
-          }
-        } else {
-          // Reverse previous if switching
-          if (prev) {
-            if (!fb.categories[category])
-              fb.categories[category] = { score: 0, liked: 0, disliked: 0 };
-            if (prev === "liked") {
-              fb.categories[category].score--;
-              fb.categories[category].liked--;
-            }
-            if (prev === "disliked") {
-              fb.categories[category].score++;
-              fb.categories[category].disliked--;
-            }
-          }
-          fb.articles[articleTitle] = type;
-          if (!fb.categories[category])
-            fb.categories[category] = { score: 0, liked: 0, disliked: 0 };
-          if (type === "liked") {
-            fb.categories[category].score++;
-            fb.categories[category].liked++;
-          }
-          if (type === "disliked") {
-            fb.categories[category].score--;
-            fb.categories[category].disliked++;
-          }
-        }
-        saveFeedback(fb);
-        _skipScrollTop = true;
-        renderContent();
+      // --- Toast ---
+      let toastTimer = null;
+      function showToast(msg, isError) {
+        const el = document.getElementById("toast");
+        el.textContent = msg;
+        el.classList.remove("show", "error");
+        if (isError) el.classList.add("error");
+        void el.offsetWidth;
+        el.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () {
+          el.classList.remove("show");
+        }, 2000);
       }
 
-      function handleCheck(idx, type) {
-        const a = currentArticles[idx];
-        if (!a) return;
-        setArticleFeedback(a.title, a.category, type);
-      }
-
-      // --- Data Loading ---
-      async function loadNews() {
+      // --- Read Later (localStorage) ---
+      function getReadLaterList() {
         try {
-          const cacheBuster = "?v=" + Date.now();
-          const urls = [
-            "latest.json" + cacheBuster,
-            "./latest.json" + cacheBuster,
-          ];
-          let data = null;
-          for (const url of urls) {
-            try {
-              const resp = await fetch(url, { cache: "no-store" });
-              if (resp.ok) {
-                data = await resp.json();
-                break;
-              }
-            } catch (e) {}
-          }
-          if (!data) throw new Error("データ取得失敗");
-          newsData = data;
-          document.getElementById("newsDate").textContent = data.date;
-          renderTabs();
-          renderContent();
-        } catch (e) {
-          document.getElementById("content").innerHTML =
-            '<div class="empty">ニュースデータが見つかりません。<br>collect-news.sh を実行してください。</div>';
-        }
-      }
-
-      // --- Custom RSS Fetch ---
-      async function fetchCustomRSS(feed) {
-        try {
-          const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(feed.url)}`;
-          const resp = await fetch(proxyUrl, { timeout: 10000 });
-          const text = await resp.text();
-          const parser = new DOMParser();
-          const xml = parser.parseFromString(text, "text/xml");
-          const items = [];
-          xml.querySelectorAll("item").forEach((item) => {
-            const title = item.querySelector("title")?.textContent || "";
-            const link = item.querySelector("link")?.textContent || "";
-            const desc =
-              item
-                .querySelector("description")
-                ?.textContent?.replace(/<[^>]+>/g, "")
-                .slice(0, 200) || "";
-            if (title)
-              items.push({
-                title,
-                link,
-                description: desc,
-                category: feed.name,
-                image: "",
-                date: "",
-              });
-          });
-          if (!items.length) {
-            xml.querySelectorAll("entry").forEach((entry) => {
-              const title = entry.querySelector("title")?.textContent || "";
-              const link =
-                entry.querySelector("link")?.getAttribute("href") || "";
-              const desc =
-                entry
-                  .querySelector("summary")
-                  ?.textContent?.replace(/<[^>]+>/g, "")
-                  .slice(0, 200) || "";
-              if (title)
-                items.push({
-                  title,
-                  link,
-                  description: desc,
-                  category: feed.name,
-                  image: "",
-                  date: "",
-                });
-            });
-          }
-          return items.slice(0, 10);
+          return JSON.parse(localStorage.getItem(READ_LATER_KEY) || "[]");
         } catch (e) {
           return [];
         }
       }
 
+      function saveReadLaterList(list) {
+        while (list.length > READ_LATER_MAX) {
+          list.shift();
+        }
+        localStorage.setItem(READ_LATER_KEY, JSON.stringify(list));
+      }
+
+      function isReadLater(url) {
+        return getReadLaterList().some(function (item) {
+          return item.url === url;
+        });
+      }
+
+      function saveReadLater(idx) {
+        var a = currentArticles[idx];
+        if (!a || !a.link) return;
+
+        if (isReadLater(a.link)) return;
+
+        var now = new Date();
+        var y = now.getFullYear();
+        var mo = String(now.getMonth() + 1).padStart(2, "0");
+        var d = String(now.getDate()).padStart(2, "0");
+        var h = String(now.getHours()).padStart(2, "0");
+        var mi = String(now.getMinutes()).padStart(2, "0");
+        var s = String(now.getSeconds()).padStart(2, "0");
+        var savedAt = y + "-" + mo + "-" + d + "T" + h + ":" + mi + ":" + s;
+
+        var list = getReadLaterList();
+        list.push({
+          title: a.title,
+          url: a.link,
+          category: a.category || "",
+          source: a.source || "",
+          saved_at: savedAt,
+        });
+        saveReadLaterList(list);
+
+        var btn = document.getElementById("rl-" + idx);
+        if (btn) {
+          btn.textContent = "保存済み";
+          btn.classList.add("saved");
+        }
+        showToast("保存しました");
+      }
+
+      // --- Data Loading ---
+      async function loadNews() {
+        try {
+          var cacheBuster = "?v=" + Date.now();
+          var resp = await fetch("latest.json" + cacheBuster, {
+            cache: "no-store",
+          });
+          if (!resp.ok) throw new Error("HTTP " + resp.status);
+          newsData = await resp.json();
+          document.getElementById("newsDate").textContent = newsData.date || "";
+          renderTabs();
+          renderContent();
+        } catch (e) {
+          console.error("News load failed:", e);
+          document.getElementById("content").innerHTML =
+            '<div class="empty">ニュースデータが見つかりません。</div>';
+          showToast("データの読み込みに失敗しました", true);
+        }
+      }
+
+      // --- Refresh ---
+      async function refreshNews() {
+        if (isRefreshing) return;
+        isRefreshing = true;
+        var btn = document.getElementById("btnRefresh");
+        btn.classList.add("spinning");
+        btn.disabled = true;
+
+        try {
+          var cacheBuster = "?v=" + Date.now();
+          var resp = await fetch("latest.json" + cacheBuster, {
+            cache: "no-store",
+          });
+          if (!resp.ok) throw new Error("HTTP " + resp.status);
+          newsData = await resp.json();
+          document.getElementById("newsDate").textContent = newsData.date || "";
+          renderContent();
+          showToast("更新しました");
+        } catch (e) {
+          console.error("Refresh failed:", e);
+          showToast("更新に失敗しました", true);
+        } finally {
+          btn.classList.remove("spinning");
+          btn.disabled = false;
+          isRefreshing = false;
+        }
+      }
+
       // --- Tabs ---
       function renderTabs() {
-        const categories = [...DEFAULT_CATEGORIES];
-        customFeeds.forEach((f) => categories.push(f.name));
-        categories.push("+");
+        var tabsEl = document.getElementById("tabs");
+        tabsEl.innerHTML = CATEGORIES.map(function (cat) {
+          var cls = cat === activeTab ? "tab active" : "tab";
+          return (
+            '<div class="' +
+            cls +
+            '" data-cat="' +
+            escHtml(cat) +
+            '">' +
+            escHtml(cat) +
+            "</div>"
+          );
+        }).join("");
 
-        const tabsEl = document.getElementById("tabs");
-        tabsEl.innerHTML = categories
-          .map((cat) => {
-            const cls =
-              cat === activeTab
-                ? "tab active"
-                : cat === "+"
-                  ? "tab tab-add"
-                  : "tab";
-            const emoji = CAT_EMOJI[cat] || "📰";
-            const label = cat === "+" ? "＋" : `${emoji} ${cat}`;
-            return `<div class="${cls}" data-cat="${cat}">${label}</div>`;
-          })
-          .join("");
-
-        tabsEl.querySelectorAll(".tab").forEach((tab) => {
-          tab.addEventListener("click", () => {
-            activeTab = tab.dataset.cat;
-            if (activeTab === "+") {
-              renderSettings();
-            } else {
-              renderTabs();
-              renderContent();
-            }
+        tabsEl.querySelectorAll(".tab").forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            var cat = this.getAttribute("data-cat");
+            if (cat === activeTab) return;
+            activeTab = cat;
+            renderTabs();
+            renderContent();
+            document.getElementById("scrollContainer").scrollTop = 0;
           });
         });
       }
 
       // --- Content Rendering ---
-      let _skipScrollTop = false;
-      async function renderContent() {
-        const content = document.getElementById("content");
+      function renderContent() {
+        var content = document.getElementById("content");
+        var articles = ((newsData && newsData.articles) || []).filter(
+          function (a) {
+            return a.category === activeTab;
+          },
+        );
 
-        // Scroll to top on tab switch (skip when feedback checkbox toggled)
-        if (!_skipScrollTop) document.getElementById("content").scrollTop = 0;
-        _skipScrollTop = false;
-
-        const customFeed = customFeeds.find((f) => f.name === activeTab);
-        let articles;
-
-        if (customFeed) {
-          content.innerHTML =
-            '<div class="loading"><div class="loading-spinner"></div><div>取得中...</div></div>';
-          articles = await fetchCustomRSS(customFeed);
-        } else {
-          articles = (newsData?.articles || []).filter(
-            (a) => a.category === activeTab,
-          );
-        }
-
-        if (!articles.length) {
-          content.innerHTML =
-            '<div class="empty">このカテゴリのニュースはありません</div>';
-          return;
-        }
-
-        // Sort: major news first (disliked stays in place, just dimmed)
-        const fb = getFeedback();
-        articles.sort((a, b) => {
-          const aMajor = a.major ? 1 : 0;
-          const bMajor = b.major ? 1 : 0;
-          if (aMajor !== bMajor) return bMajor - aMajor;
+        articles.sort(function (a, b) {
+          if (a.major && !b.major) return -1;
+          if (!a.major && b.major) return 1;
           return 0;
         });
 
         currentArticles = articles;
-        content.innerHTML = articles
-          .map((a) => {
-            const img =
-              a.image ||
-              DEFAULT_IMAGES[a.category] ||
-              DEFAULT_IMAGES["AI・テクノロジー"];
-            const color = CAT_COLORS[a.category] || "var(--cat-custom)";
-            const desc = a.description || "";
-            const articleFb = fb.articles[a.title] || "";
-            const dimmed = articleFb === "disliked" ? " dimmed" : "";
-            const idx = articles.indexOf(a);
 
-            return `
-      <div class="card${dimmed}">
-        ${img ? `<img class="card-img" src="${escHtml(img)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ""}
-        <div class="card-body">
-          <span class="card-cat" style="background:${color}">${escHtml(a.category)}</span>
-          ${a.major ? '<span class="card-major">重要</span>' : ""}
-          <div class="card-title">${escHtml(a.title)}</div>
-          ${desc ? `<div class="card-desc">${escHtml(desc)}</div>` : ""}
-          <div class="card-actions">
-            ${a.link ? `<a class="card-link" href="${escHtml(a.link)}" target="_blank" rel="noopener">元記事を読む →</a>` : "<span></span>"}
-            ${a.link ? `<button class="btn-readlater" onclick="saveReadLater(${idx})" id="rl-${idx}">📖 後で読む</button>` : ""}
-            <div class="feedback-checks">
-              <label class="fb-check${articleFb === "liked" ? " checked-like" : ""}">
-                <input type="checkbox" ${articleFb === "liked" ? "checked" : ""} onchange="handleCheck(${idx},'liked')">面白かった
-              </label>
-              <label class="fb-check dislike-check${articleFb === "disliked" ? " checked-dislike" : ""}">
-                <input type="checkbox" ${articleFb === "disliked" ? "checked" : ""} onchange="handleCheck(${idx},'disliked')">興味なし
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>`;
-          })
-          .join("");
-      }
+        var html = "";
 
-      // --- Read Later (save to system-techo Notes) ---
-      const TECHO_GAS_URL =
-        "https://script.google.com/macros/s/AKfycbxJQ_GSE_bJQYZPSvGe4K4Ar4Z65YBOhhFEuoOeRZh9ZNxc7n5ePxpLR5rVjLvcgWaMYg/exec";
-
-      async function saveReadLater(idx) {
-        const a = currentArticles[idx];
-        if (!a) return;
-        const btn = document.getElementById("rl-" + idx);
-        if (btn) {
-          btn.textContent = "保存中...";
-          btn.disabled = true;
-        }
-
-        try {
-          // Get current notes from GAS
-          const resp = await fetch(TECHO_GAS_URL + "?type=notes", {
-            mode: "cors",
-            redirect: "follow",
+        // Highlights - only on first tab
+        if (
+          activeTab === CATEGORIES[0] &&
+          newsData &&
+          newsData.highlights &&
+          newsData.highlights.length > 0
+        ) {
+          html += '<div class="highlights">';
+          html +=
+            '<div class="highlights-title">&#9733; &#20170;&#26085;&#12398;&#27880;&#30446;</div>';
+          newsData.highlights.forEach(function (h) {
+            html += '<div class="highlight-item">';
+            html +=
+              '<div class="highlight-item-title">' +
+              escHtml(h.title) +
+              "</div>";
+            if (h.reason) {
+              html +=
+                '<div class="highlight-item-reason">' +
+                escHtml(h.reason) +
+                "</div>";
+            }
+            html += "</div>";
           });
-          const data = await resp.json();
-          const notes = data.notes || [];
-
-          // Find or create "後で読む" note
-          let readLater = notes.find((n) => n.title === "後で読む");
-          const newEntry = a.title + "\n" + a.link + "\n";
-
-          if (readLater) {
-            // Append to existing content
-            readLater.content = (readLater.content || "") + "\n" + newEntry;
-            readLater.pinned = "TRUE";
-          } else {
-            // Create new pinned note
-            readLater = {
-              id: Date.now(),
-              title: "後で読む",
-              content: newEntry,
-              read: "FALSE",
-              created: new Date().toISOString(),
-              pinned: "TRUE",
-            };
-            notes.unshift(readLater);
-          }
-
-          // Save all notes back
-          await fetch(TECHO_GAS_URL, {
-            method: "POST",
-            mode: "cors",
-            redirect: "follow",
-            headers: { "Content-Type": "text/plain" },
-            body: JSON.stringify({ type: "notes", items: notes }),
-          });
-
-          if (btn) {
-            btn.textContent = "✓ 保存済み";
-            btn.classList.add("saved");
-          }
-        } catch (e) {
-          console.error("Read later save failed:", e);
-          if (btn) {
-            btn.textContent = "📖 後で読む";
-            btn.disabled = false;
-          }
-          alert("保存に失敗しました");
-        }
-      }
-
-      // --- Settings ---
-      function renderSettings() {
-        const content = document.getElementById("content");
-        document.getElementById("content").scrollTop = 0;
-
-        let feedsHtml = "";
-        customFeeds.forEach((f, i) => {
-          feedsHtml += `
-      <div class="custom-feed-item">
-        <span>📰 ${escHtml(f.name)}</span>
-        <button class="btn btn-danger" onclick="removeFeed(${i})">削除</button>
-      </div>`;
-        });
-
-        // Preference summary
-        const fb = getFeedback();
-        let prefHtml = "";
-        const cats = fb.categories || {};
-        const hasPref = Object.keys(cats).some(
-          (k) => cats[k].liked > 0 || cats[k].disliked > 0,
-        );
-        if (hasPref) {
-          prefHtml = '<div class="pref-summary"><h4>あなたの傾向</h4>';
-          for (const [cat, data] of Object.entries(cats)) {
-            if (data.liked > 0)
-              prefHtml += `<span class="pref-tag liked">👍 ${escHtml(cat)} (${data.liked})</span>`;
-            if (data.disliked > 0)
-              prefHtml += `<span class="pref-tag disliked">👎 ${escHtml(cat)} (${data.disliked})</span>`;
-          }
-          prefHtml += "</div>";
+          html += "</div>";
         }
 
-        content.innerHTML = `
-    ${prefHtml}
-    <div class="settings-panel">
-      <h3>📰 カテゴリを追加</h3>
-      <div class="form-group">
-        <label>カテゴリ名</label>
-        <input id="feedName" type="text" placeholder="例: スポーツ">
-      </div>
-      <div class="form-group">
-        <label>RSS URL</label>
-        <input id="feedUrl" type="url" placeholder="https://example.com/rss">
-      </div>
-      <button class="btn btn-primary" onclick="addFeed()">追加する</button>
-      ${
-        feedsHtml
-          ? `
-        <div class="custom-feeds">
-          <h4 style="font-size:14px;margin-bottom:8px;color:var(--sub)">追加済みカテゴリ</h4>
-          ${feedsHtml}
-        </div>`
-          : ""
-      }
-    </div>
-    ${
-      hasPref
-        ? `
-    <div class="settings-panel" style="margin-top:12px">
-      <h3>フィードバックのリセット</h3>
-      <p style="font-size:13px;color:var(--sub);margin-bottom:12px">全てのフィードバック履歴を削除します</p>
-      <button class="btn btn-outline" onclick="resetFeedback()">リセットする</button>
-    </div>`
-        : ""
-    }`;
-        renderTabs();
-      }
-
-      function addFeed() {
-        const name = document.getElementById("feedName").value.trim();
-        const url = document.getElementById("feedUrl").value.trim();
-        if (!name || !url) {
-          alert("カテゴリ名とRSS URLを入力してください");
+        if (!articles.length) {
+          html += '<div class="empty">このカテゴリのニュースはありません</div>';
+          content.innerHTML = html;
           return;
         }
-        customFeeds.push({ name, url });
-        localStorage.setItem("customFeeds", JSON.stringify(customFeeds));
-        activeTab = name;
-        renderTabs();
-        renderContent();
+
+        articles.forEach(function (a, idx) {
+          var color = CAT_COLORS[a.category] || "var(--cat-ai)";
+          var desc = a.description || "";
+          var source = a.source || "";
+          var isSaved = a.link && isReadLater(a.link);
+
+          html += '<div class="card">';
+          html += '<div class="card-meta">';
+          html +=
+            '<span class="card-cat" style="background:' +
+            color +
+            '">' +
+            escHtml(a.category) +
+            "</span>";
+          if (a.major) {
+            html += '<span class="card-major">重要</span>';
+          }
+          if (source) {
+            html += '<span class="card-source">' + escHtml(source) + "</span>";
+          }
+          html += "</div>";
+          html += '<div class="card-title">' + escHtml(a.title) + "</div>";
+          if (desc) {
+            html += '<div class="card-desc">' + escHtml(desc) + "</div>";
+          }
+          html += '<div class="card-actions">';
+          if (a.link) {
+            html +=
+              '<a class="card-link" href="' +
+              escHtml(a.link) +
+              '" target="_blank" rel="noopener">元記事 &#8594;</a>';
+          } else {
+            html += "<span></span>";
+          }
+          if (a.link) {
+            if (isSaved) {
+              html +=
+                '<button class="btn-readlater saved" id="rl-' +
+                idx +
+                '">保存済み</button>';
+            } else {
+              html +=
+                '<button class="btn-readlater" id="rl-' +
+                idx +
+                '" onclick="saveReadLater(' +
+                idx +
+                ')">後で読む</button>';
+            }
+          }
+          html += "</div>";
+          html += "</div>";
+        });
+
+        content.innerHTML = html;
       }
 
-      function removeFeed(index) {
-        customFeeds.splice(index, 1);
-        localStorage.setItem("customFeeds", JSON.stringify(customFeeds));
-        activeTab = DEFAULT_CATEGORIES[0];
-        renderTabs();
-        renderContent();
-      }
-
-      function resetFeedback() {
-        if (confirm("フィードバック履歴を全てリセットしますか？")) {
-          localStorage.removeItem("newsFeedback");
-          renderSettings();
-        }
-      }
-
+      // --- Utility ---
       function escHtml(s) {
-        const d = document.createElement("div");
+        if (!s) return "";
+        var d = document.createElement("div");
         d.textContent = s;
         return d.innerHTML;
       }
 
-      // --- Touch swipe ---
-      let touchStartX = 0;
-      document.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-      });
-      document.addEventListener("touchend", (e) => {
-        const diff = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(diff) < 60) return;
-        const cats = [...DEFAULT_CATEGORIES, ...customFeeds.map((f) => f.name)];
-        const idx = cats.indexOf(activeTab);
-        if (diff < 0 && idx < cats.length - 1) {
-          activeTab = cats[idx + 1];
-        } else if (diff > 0 && idx > 0) {
-          activeTab = cats[idx - 1];
-        } else return;
-        renderTabs();
-        renderContent();
-      });
+      // --- Touch Swipe ---
+      var touchStartX = 0;
+      var touchStartY = 0;
+      document.addEventListener(
+        "touchstart",
+        function (e) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        },
+        { passive: true },
+      );
+
+      document.addEventListener(
+        "touchend",
+        function (e) {
+          var diffX = e.changedTouches[0].clientX - touchStartX;
+          var diffY = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(diffX) < 60 || Math.abs(diffY) > Math.abs(diffX)) return;
+          var idx = CATEGORIES.indexOf(activeTab);
+          if (idx < 0) return;
+          if (diffX < 0 && idx < CATEGORIES.length - 1) {
+            activeTab = CATEGORIES[idx + 1];
+          } else if (diffX > 0 && idx > 0) {
+            activeTab = CATEGORIES[idx - 1];
+          } else {
+            return;
+          }
+          renderTabs();
+          renderContent();
+          document.getElementById("scrollContainer").scrollTop = 0;
+        },
+        { passive: true },
+      );
+
+      // --- Event Listeners ---
+      document
+        .getElementById("btnRefresh")
+        .addEventListener("click", refreshNews);
+
+      // --- Service Worker Registration ---
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").catch(function (e) {
+          console.error("SW registration failed:", e);
+        });
+      }
 
       // --- Init ---
       loadNews();
